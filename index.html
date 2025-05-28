@@ -162,14 +162,14 @@ function fnDate(commentDate) {
 name: "Глеб Фокин",
 date: new Date(),
 text:"Это будет первый комментарий на этой странице",
-likes:"3",
+likes:3,
 isLiked:false,
     },
     {
 name:"Варвара Н.",
 date:new Date(),
 text:"Мне нравится, как оформлена эта страница",
-likes:"75",
+likes:75,
 isLiked:true,
     },
   ];
@@ -221,6 +221,13 @@ isLiked:true,
 renderComments();
 
 const addButton = document.querySelector(".add-form-button")
+addButton.addEventListener("click", () => {
+ if (!name.value || !text.value) {
+ console.error("заполните поля")
+  return
+ }
+
+const addButton = document.querySelector(".add-form-button")
 const name = document.getElementById("name-input");
 const text = document.getElementById("text-input");
 
@@ -229,7 +236,7 @@ const newComment = {
   name: name.value,
   date: new Date(),
   text: text.value,
-  likes:"0",
+  likes:0,
   isLiked: false,
 };
 
