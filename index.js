@@ -1,78 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Проект "Комменты"</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+import {comments} from "./modules/comments.js"
+import { initAddCommentListener } from "./modules/initListeners.js";
+import {renderComments} from "./modules/renderComments.js"
 
-  <body>
-    <div class="container">
-      <ul class="comments" id="comments">
-        <li class="comment" id="comment">
-          <div class="comment-header">
-            <div>Глеб Фокин</div>
-            <div>12.02.22 12:18</div>
-          </div>
-          <div class="comment-body">
-            <div class="comment-text">
-              Это будет первый комментарий на этой странице
-            </div>
-          </div>
-          <div class="comment-footer">
-            <div class="likes">
-              <span class="likes-counter">${comment.likes}</span>
-              <button class="like-button"></button>
-            </div>
-          </div>
-        </li>
-        <li class="comment" data-index="${index}">
-          <div class="comment-header">
-            <div>Варвара Н.</div>
-            <div>13.02.22 19:22</div>
-          </div>
-          <div class="comment-body">
-            <div class="comment-text">
-              Мне нравится как оформлена эта страница! ❤
-            </div>
-          </div>
-          <div class="comment-footer">
-            <div class="likes">
-              <span class="likes-counter">75</span>
-              <button class="like-button"></button>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div class="add-form">
-        <input
-          type="text"
-          class="add-form-name"
-          placeholder="Введите ваше имя"
-          id="name-input"
-        />
-        <textarea
-          type="textarea"
-          class="add-form-text"
-          placeholder="Введите ваш коментарий"
-          rows="4"
-          id="text-input"
-          value="text"
-        ></textarea>
-        <div class="add-form-row">
-          <button class="add-form-button" id="add-form-button">Написать</button>
-        </div>
-      </div>
-    </div>
-  </body>
-  <style>
-    .error {
-      background-color: red;
-    }
-  </style>
-<script type="module" src="./index.js"></script>
-  <script>
-//     "use strict";
+
+renderComments();
+initAddCommentListener(renderComments);
+initLikeListener(renderComments);
+initReplyListeners();
+     
+// "use strict";
 //     const buttonElement = document.getElementById("add-form-button");
 //     const listElement = document.getElementById("comments");
 //     const nameInputElement = document.getElementById("name-input");
@@ -202,7 +138,6 @@
 //     })
 //     .join("");
 
-
 //     const likeButtons = document.querySelectorAll(".like-button")
 //     for(const likeButton of likeButtons) {
 //       likeButton.addEventListener("click", () => {
@@ -247,8 +182,3 @@
 // name.value ="";
 // text.value = "";
 // });
-
-
-  </script>
-</html>
-
